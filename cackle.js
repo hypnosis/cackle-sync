@@ -48,9 +48,7 @@
 
 		if (params.hasOwnProperty('siteApiKey') == false) {
 			throw new Error ('siteApiKey param is requirad');
-		}
-
-		console.log('Cackle: params', params)
+		}		
 
 		var urlParam = {
 			host: OPTS.host,
