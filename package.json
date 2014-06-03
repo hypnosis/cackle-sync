@@ -21,6 +21,6 @@
     "url": "https://github.com/hypnosis/cackle-sync/issues"
   },
   "dependencies": {
-    "querystring": "~0.2.0"    
+    "querystring": "~0.2.0"
   }
 }

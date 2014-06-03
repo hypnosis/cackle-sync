@@ -27,9 +27,9 @@
 		prefix: '/2.0'
 	}
 
-	function loadComments (_config,done) {
+	function loadComments (params,done) {
 		var commentsPath = '/comment/list.json'
-		fetch(_config,commentsPath, done);
+		fetch(params,commentsPath, done);
 	}
 
 	function fetch(params, action, done) {
@@ -49,6 +49,8 @@
 		if (params.hasOwnProperty('siteApiKey') == false) {
 			throw new Error ('siteApiKey param is requirad');
 		}
+
+		console.log('Cackle: params', params)
 
 		var urlParam = {
 			host: OPTS.host,
