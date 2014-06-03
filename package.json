@@ -1,6 +1,6 @@
 {
   "name": "cackle-sync",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sync comments with Cackle service http://cackle.me",
   "main": "cackle-sync.js",
   "scripts": {
@@ -21,7 +21,9 @@
     "url": "https://github.com/hypnosis/cackle-sync/issues"
   },
   "dependencies": {
-    "querystring": "~0.2.0",
+    "querystring": "~0.2.0"
+  },
+  "devDependencies": {
     "mongoose": "~3.8.12"
   }
 }
