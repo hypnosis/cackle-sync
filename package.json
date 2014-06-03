@@ -2,7 +2,7 @@
   "name": "cackle-sync",
   "version": "0.0.1",
   "description": "Sync comments with Cackle service http://cackle.me",
-  "main": "index.js",
+  "main": "cackle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,8 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/hypnosis/cackle-sync/issues"
+  },
+  "dependencies": {
+    "querystring": "~0.2.0"
   }
 }
