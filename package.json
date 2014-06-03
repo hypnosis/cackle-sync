@@ -1,6 +1,6 @@
 {
   "name": "cackle-sync",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sync comments with Cackle service http://cackle.me",
   "main": "app.js",
   "scripts": {
