@@ -37,13 +37,13 @@
 	});
 
 	CackleSync.prototype.sync = function (options, done) {
-				
 		this.fetch(options);
 		done(null, self);
 	}
 
 	CackleSync.prototype.fetch = function(params) {
 		
+		extend(requestParam,params);
 		extend(requestParam,this.apiCredentials);
 		requestParam['page'] = params['page'] || currentPage;
 		requestParam['size'] = params['size'] || size;
@@ -52,36 +52,34 @@
 	}
 
 	CackleSync.prototype.onLoaded = function(err, results) {
-			self = this;
-			if (err) return done(err);
+		self = this;
+		if (err) return done(err);
 
-			// console.log(results);
+		// console.log(results);
+		
+		currentPage = parseInt(results.comments.number);
+		totalPages  = parseInt(results.comments.totalPages);
+		firstPage   = results.comments.firstPage;
+		lastPage    = results.comments.lastPage;
+		var chunkedComments = results.comments.content;
+
+		self.emit('chunk', chunkedComments);
+		console.log(currentPage, totalPages)
+
+		if (currentPage < 4) {
 			
-			currentPage = parseInt(results.comments.number);
-			totalPages  = parseInt(results.comments.totalPages);
-			firstPage   = results.comments.firstPage;
-			lastPage    = results.comments.lastPage;
-			var chunkedComments = results.comments.content;
-
-			self.emit('chunk', chunkedComments);
-			console.log(currentPage, totalPages)
-
-			if (currentPage < totalPages) {
-				
-				console.log('more?')
-				requestParam['page'] = ++currentPage;
-				console.log('CackleSync',requestParam);
-				setTimeout(function() {
-					Cackle.loadComments(requestParam, this.onLoaded.bind(self))
-				}.bind(self), WAIT);
-				
-				
-			} else {
-				self.emit('end');
-			}
+			console.log('more?')
+			requestParam['page'] = ++currentPage;
+			console.log('CackleSync',requestParam);
+			setTimeout(function() {
+				Cackle.loadComments(requestParam, this.onLoaded.bind(self))
+			}.bind(self), WAIT);
+			
+			
+		} else {
+			self.emit('end');
 		}
-
-	
+	}
 
 	module.exports = CackleSync;
 })()

@@ -1,0 +1,9 @@
+module.exports = {
+	apiCredentials: { 
+		id: 'YOUR_CACKLE_ID',
+		accountApiKey: 'CACKLE_ACCOUNT_API_KEY',
+		siteApiKey: 'CACKLE_SITE_API_KEY'
+	},
+
+	mongoURL: 'mongodb://localhost/cackle_comments_test' // example
+}
