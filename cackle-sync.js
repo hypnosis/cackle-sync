@@ -66,7 +66,7 @@
 		self.emit('chunk', chunkedComments);
 		console.log(currentPage, totalPages)
 
-		if (currentPage < 4) {
+		if (currentPage < totalPages) {
 			
 			console.log('more?')
 			requestParam['page'] = ++currentPage;
